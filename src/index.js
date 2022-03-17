@@ -6,10 +6,17 @@ import AuthSignIn from './Pages/AuthSignIn';
 import 'antd/dist/antd.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import './assets/style/color.css';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import Home from './Components/Home/Home'
+
+
 ReactDOM.render(
-  <React.StrictMode>
-      <AuthSignIn/>
-  </React.StrictMode>,
+  <BrowserRouter>
+    <Routes>
+       <Route path="/home" element={<Home/>}  />
+       <Route path="/login" element={<AuthSignIn/>}  />
+    </Routes>
+  </BrowserRouter>,
   document.getElementById('root')
 );
 
