@@ -8,6 +8,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './assets/style/color.css';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import Home from './Components/Home/Home'
+import Graph from './Components/Home/Graph'
 
 
 ReactDOM.render(
@@ -15,6 +16,8 @@ ReactDOM.render(
     <Routes>
        <Route path="/home" element={<Home/>}  />
        <Route path="/login" element={<AuthSignIn/>}  />
+       <Route path="/graph" element={<Graph/>}  />
+
     </Routes>
   </BrowserRouter>,
   document.getElementById('root')
