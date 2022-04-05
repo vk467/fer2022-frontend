@@ -6,7 +6,7 @@ import AuthSignIn from './Pages/AuthSignIn';
 import 'antd/dist/antd.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import './assets/style/color.css';
-import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import {BrowserRouter, Routes, Route, Navigate} from 'react-router-dom';
 import Home from './Components/Home/Home'
 import Graph from './Components/Home/Graph'
 
@@ -14,6 +14,7 @@ import Graph from './Components/Home/Graph'
 ReactDOM.render(
   <BrowserRouter>
     <Routes>
+        <Route path="/" element={<Navigate replace to="/login"/>} />
        <Route path="/home" element={<Home/>}  />
        <Route path="/login" element={<AuthSignIn/>}  />
        <Route path="/graph" element={<Graph/>}  />

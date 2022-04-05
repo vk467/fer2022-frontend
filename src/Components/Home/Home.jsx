@@ -37,7 +37,8 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
   
 const Home=()=>{
   const [users,setusers]=useState([]);
-  const [data,setData]=useState([]);
+  const [data,setData]=useState([])
+  ;
     const paperStyle={padding :20,height:'65vh',width:800,margin:"24px auto"};
     let navigate = useNavigate();
 
@@ -48,7 +49,7 @@ const Home=()=>{
     }
     useEffect(()=>{
       const fetchusers = async () =>{
-      const res=await fetch('http://localhost:8080/patient/getuserDetails');
+      const res=await fetch('http://ec2-3-109-59-132.ap-south-1.compute.amazonaws.com:8080/patient/getuserDetails');
       const getdata=await res.json();
       console.log(getdata);
       setusers(getdata);
@@ -61,7 +62,7 @@ const Home=()=>{
 
       useEffect(()=>{
         const fetchData = async () =>{
-        const res=await fetch('http://localhost:8080/realtimedata/getRealtimedataDetails');
+        const res=await fetch('http://ec2-3-109-59-132.ap-south-1.compute.amazonaws.com:8080/realtimedata/getRealtimedataDetails');
         const getdata=await res.json();
         window.localStorage.setItem('data',JSON.stringify(getdata));
         // console.log(data[0]);
