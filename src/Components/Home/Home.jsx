@@ -49,7 +49,7 @@ const Home=()=>{
     }
     useEffect(()=>{
       const fetchusers = async () =>{
-      const res=await fetch('http://ec2-3-109-59-132.ap-south-1.compute.amazonaws.com:8080/patient/getuserDetails');
+      const res=await fetch('https://nupvh5pgxj.execute-api.ap-south-1.amazonaws.com/patient/getuserDetails');
       const getdata=await res.json();
       console.log(getdata);
       setusers(getdata);
@@ -62,7 +62,7 @@ const Home=()=>{
 
       useEffect(()=>{
         const fetchData = async () =>{
-        const res=await fetch('http://ec2-3-109-59-132.ap-south-1.compute.amazonaws.com:8080/realtimedata/getRealtimedataDetails');
+        const res=await fetch('https://nupvh5pgxj.execute-api.ap-south-1.amazonaws.com/realtimedata/getRealtimedataDetails');
         const getdata=await res.json();
         window.localStorage.setItem('data',JSON.stringify(getdata));
         // console.log(data[0]);
