@@ -12,6 +12,7 @@ import { styled } from '@mui/material/styles';
 import  { tableCellClasses } from '@mui/material/TableCell';
 import {useNavigate} from 'react-router-dom';
 import Grid from '@mui/material/Grid';
+import "../main.css"
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -81,7 +82,7 @@ const Home=()=>{
       }
   ,[]);
     return(
-      <div style={{
+      <div  className="displayed" style={{
        
         backgroundImage: "url(" + "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFZ4au4oWq2d-nq2_8jZSOQ8b1KGX-zJLtFg&usqp=CAU" + ")",
         backgroundPosition: 'center',
