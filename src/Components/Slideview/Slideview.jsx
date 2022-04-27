@@ -30,14 +30,21 @@ const Slideview = () => {
         fontSize: "30px"
       }
       const [data,setData]=useState("");
+      const [label,setLabel]=useState("");
 
     useEffect(()=>{
         const Ref = ref(db, 'frames');
         onValue(Ref, (snapshot) => {
         const value = Object.values(snapshot.val());
         console.log(Object.values(value));
-
         setData("data:image/jpeg;base64,"+value[value.length-1]);
+        });
+
+        const Ref2 = ref(db, 'emotion');
+        onValue(Ref2, (snapshot) => {
+        const labels = Object.values(snapshot.val());
+        console.log(Object.values(labels));
+        setLabel(labels[labels.length-1]);
         });
     },[]);
     
@@ -55,7 +62,7 @@ return (
         </Grid>
 	<Paper style={paperStyle}>
     <Grid align='center'>
-        <h4 style={{ color: 'black' }}>Sadness</h4>
+        <h4 style={{ color: 'black' }}>{label}</h4>
         </Grid>
          <img src={data} alt="Loading..." />
     </Paper>
