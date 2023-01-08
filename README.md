@@ -4,11 +4,11 @@ Realtime Facial expressions of customers are captured from Raspberry Pi(proposed
 
 *Technologies used:*
 
-Deep Learning /
-Image Processing /
-Raspberry Pi 4 /
-React JS /
-Spring Boot /
+Deep Learning \
+Image Processing \
+Raspberry Pi 4 \
+React JS \
+Spring Boot \
 Firebase (DB + Hosting)
 
 ## Application url
@@ -16,5 +16,5 @@ Firebase (DB + Hosting)
 https://emotion-rekognition.web.app
 
 
-Thanks to our team(Batch-7),
-BE-ECE Final year Project
+Thanks to my team(Batch-7),
+BE-ECE Final year(2022), PSGCT
