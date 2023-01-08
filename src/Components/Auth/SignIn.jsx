@@ -11,8 +11,6 @@ const SignIn=()=>{
         <div>
             <Form name="SignIn Form" 
             initialValues={{ remember: true, } }
-            // onFinish={onFinish}
-            // onFinishFailed={onFinishFailed}
             autoComplete="off"
             layout = "vertical"
             onSubmit = {RouteChange}

@@ -8,14 +8,14 @@ import { getDatabase, ref, onValue} from "firebase/database";
 import "../main.css"
 
 const config = {
-    apiKey: "AIzaSyBkfNs0nfXEjdjeqHPjyYEcmPqxucTFytQ",
-    authDomain: "emotion-rekognition.firebaseapp.com",
-    projectId: "emotion-rekognition",
-    storageBucket: "emotion-rekognition.appspot.com",
-    messagingSenderId: "722403146243",
-    appId: "1:722403146243:web:d6999bae4dc45ba1cc6c36",
-    measurementId: "G-8RHZPSRJEG",
-    databaseURL: "https://emotion-rekognition-default-rtdb.asia-southeast1.firebasedatabase.app"
+    apiKey: "AIzaSyCZ4viOKxkW7tJsKovWapLKx1ELNOkq9GU",
+    authDomain: "fer-rekognition.firebaseapp.com",
+    databaseURL: "https://fer-rekognition-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "fer-rekognition",
+    storageBucket: "fer-rekognition.appspot.com",
+    messagingSenderId: "50001175357",
+    appId: "1:50001175357:web:c317060a05e3c6e0759b54",
+    measurementId: "G-TVMH2FE8S5"
   };
 
 const Slideview = () => {

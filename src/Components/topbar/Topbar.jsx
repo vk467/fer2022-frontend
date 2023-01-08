@@ -1,42 +1,41 @@
-import React,{useEffect, useState} from 'react'
+import React,{useState} from 'react'
 import "./topbar.css"
 import CloseIcon from "@material-ui/icons/Close";
 import IconButton from "@material-ui/core/IconButton";
 import { useNavigate } from "react-router-dom";
 import {Button} from '@material-ui/core'
-import {Dialog, DialogActions, DialogContent, DialogTitle,
-    TextField,  Select, Input,Menu,InputLabel, MenuItem, Popper, Box, ListItem, List,Snackbar , FormControl} from '@material-ui/core';
+import {TextField,Snackbar } from '@material-ui/core';
 import { initializeApp } from 'firebase/app';
-import { getFirestore, doc, updateDoc } from "firebase/firestore";
+import { getDatabase, ref, update} from "firebase/database";
+
+
     const config = {
-        apiKey: "AIzaSyBkfNs0nfXEjdjeqHPjyYEcmPqxucTFytQ",
-        authDomain: "emotion-rekognition.firebaseapp.com",
-        projectId: "emotion-rekognition",
-        storageBucket: "emotion-rekognition.appspot.com",
-        messagingSenderId: "722403146243",
-        appId: "1:722403146243:web:d6999bae4dc45ba1cc6c36",
-        measurementId: "G-8RHZPSRJEG",
-        databaseURL: "https://emotion-rekognition-default-rtdb.asia-southeast1.firebasedatabase.app"
-      };
+      apiKey: "AIzaSyCZ4viOKxkW7tJsKovWapLKx1ELNOkq9GU",
+      authDomain: "fer-rekognition.firebaseapp.com",
+      databaseURL: "https://fer-rekognition-default-rtdb.asia-southeast1.firebasedatabase.app",
+      projectId: "fer-rekognition",
+      storageBucket: "fer-rekognition.appspot.com",
+      messagingSenderId: "50001175357",
+      appId: "1:50001175357:web:c317060a05e3c6e0759b54",
+      measurementId: "G-TVMH2FE8S5"
+    };
 
 
 export default function Topbar(){
 
     const app = initializeApp(config);
-    const db = getFirestore(app);
+    const db = getDatabase(app);
 
     let navigate = useNavigate();
 
 
     const [open, setOpen] = useState(false);
     const [message,setMessage]= useState("");
-    const [time,setTime]= useState(5);
+    const [time,setTime]= useState("");
 
     const handleSet = () => {
-        const ref = doc(db, "fer", "config");
-        updateDoc(ref, {
-            predefined_time: time
-          });
+        update(ref(db), {'/fer/predefined_time':time});
+        setTime("");
         setMessage("Time set.");
         setOpen(true);
     };
@@ -45,20 +44,13 @@ export default function Topbar(){
     };
 
     const handleStart = () => {
-        const ref = doc(db, "fer", "config");
-        updateDoc(ref, {
-            start: true
-          });
+        update(ref(db), {'/fer/start':true});
         setMessage("FER system Started.");
         setOpen(true);
       };
 
     const handleStop = () => {
-        const ref = doc(db, "fer", "config");
-        updateDoc(ref, {
-            start: false
-          });
-        
+        update(ref(db), {'/fer/start':false});
         setMessage("FER system Stopped.");
         setOpen(true);
     };
@@ -76,6 +68,7 @@ export default function Topbar(){
                                     margin="dense"
                                     id="time"
                                     label="Schedule(in mins)"
+                                    value={time}
                                     type="text"
                                     fullWidth
                                     variant="outlined"

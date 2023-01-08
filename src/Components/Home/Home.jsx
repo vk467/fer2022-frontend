@@ -70,9 +70,6 @@ const Home=()=>{
         // setData(getdata);
         }
         fetchData();
-        return () => {
-          setData([]); 
-        };
         },[])
         useEffect(()=>{
 
